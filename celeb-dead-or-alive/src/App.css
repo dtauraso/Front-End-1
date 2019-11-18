@@ -24,8 +24,9 @@
 .CelebrityImage {
   
   max-width: 500px; /* bounds on image */
+  
   margin: 0 auto; /* centering image */
-
+  margin-top: 50px;
 }
 .pic {
   /* so image is not too large */
