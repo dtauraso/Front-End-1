@@ -32,7 +32,9 @@ function CelebrityDeadOrAliveQuiz() {
     //         })
         
     // }, [ith_celeb])
+    // useEffect(() => {
 
+    // }, [countedCelebs])
     const aliveButton = () => {
         // console.log("i am alive")
         aliveScore += 1
@@ -69,6 +71,7 @@ function CelebrityDeadOrAliveQuiz() {
 
         }
         <button onClick={() => {getScore()}}>Get Score</button>
+        {/* how to get this updated  */}
         {String(aliveScore)}
         </div>
 
