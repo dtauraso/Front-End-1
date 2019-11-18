@@ -14,3 +14,4 @@ function CelebrityDeadOrAliveQuiz() {
 
     );
 }
+export default CelebrityDeadOrAliveQuiz;
