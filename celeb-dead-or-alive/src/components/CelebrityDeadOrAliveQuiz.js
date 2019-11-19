@@ -1,16 +1,30 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
-import Celebrities from "./Celebrities.js";
+import axios from "axios"
+import styled from "styled-components";
+// import Celebrities from "./Celebrities.js";
 import Celebrity from "./Celebrity";
 // get the local celeb data here as an array
 // get the ith celebrity
 // axios.get(api/celebrities)
 // the dummy data is misattributed
 function CelebrityDeadOrAliveQuiz(props) {
+
+    var [myCelebrities, setMyCelebrities] = useState([])
+
+    useEffect(() => {
+        axios.get("https://celebritydeadoralive-backend.herokuapp.com/api/celebs")
+            .then(response => {
+                console.log("my celebs", response)
+                setMyCelebrities(response.data)
+            })
+
+    }
+        
+        ,[])
     // score
     // just realize I'm supposed to keep track of the celebs they got right not just count all the alive ones
     const [score, setScore] = useState(0)
-    var [myCelebrities, setMyCelebrities] = useState(Celebrities)
     // this is so we can use setChosenCelebs with the spread operator and object overwrite closure []
     // to set the selected status of any individual celeb
     // We can't use an array because we then would have to make an object representing each array with useState
@@ -28,6 +42,11 @@ function CelebrityDeadOrAliveQuiz(props) {
         9: 0,
 
     })
+    const MyScore = styled.button`
+    
+        margin-top: 50px;
+        // font-weight: 20px;
+    `
 
     // setMyCelebrities(myCelebrities.map(celebrity => ( {...celebrity, isSelected: false}) ))
     // if setter changes state react rerenders
@@ -65,8 +84,8 @@ function CelebrityDeadOrAliveQuiz(props) {
         // console.log("i am alive")
         // now we have a way to tell if the celeb is dead or alive
         // console.log("I am the object they clicked on", celebrity)
-        if(!chosenCelebs[celebrity.key]) {
-            if(celebrity.alive) {
+        if(!chosenCelebs[celebrity.id]) {
+            if(!celebrity.dead) {
                 setScore(score + 1)
                 // console.log("are alive")
                 event.target.classList.toggle("right")
@@ -75,10 +94,12 @@ function CelebrityDeadOrAliveQuiz(props) {
                 // to indicate the users choice
                 // button.style.background = some color
                 // very convenient with ...chosenCelebs and [celebrity.key]
-                setChosenCelebs({...chosenCelebs, [celebrity.key]: 1})
+                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
     
             } else {
                 event.target.classList.toggle("wrong")
+                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+
 
             }
             setCountedCelebs(countedCelebs + 1)
@@ -95,20 +116,21 @@ function CelebrityDeadOrAliveQuiz(props) {
     const deadbutton = (celebrity, event) => {
         // console.log("i am dead")
         // console.log("I am the object they clicked on", celebrity)
-        if(!chosenCelebs[celebrity.key]) {
+        if(!chosenCelebs[celebrity.id]) {
 
-            if(!celebrity.alive) {
+            if(celebrity.dead) {
                 setScore(score + 1)
                 event.target.classList.toggle("right")
 
                 // console.log("are dead")
 
                 // very convenient with ...chosenCelebs and [celebrity.key]
-                setChosenCelebs({...chosenCelebs, [celebrity.key]: 1})
+                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
 
-            }
-            else {
+            } else {
                 event.target.classList.toggle("wrong")
+                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+
 
             }
             setCountedCelebs(countedCelebs + 1)
@@ -144,7 +166,7 @@ function CelebrityDeadOrAliveQuiz(props) {
         <div>
         {myCelebrities.map((celebrity) => (
             <Celebrity
-            key={celebrity.key}
+            key={celebrity.id}
             celebrity={celebrity}
             aliveButton={(e) => 
                 {
@@ -160,14 +182,15 @@ function CelebrityDeadOrAliveQuiz(props) {
                 deadbutton(celebrity, e)
                 }
             }
-            
+            // event={{e}}
             />
 
         ))
 
         }
+
         <Link to="/score">
-            <button onClick={() => {getScore()}}>Get Score</button>
+            <MyScore onClick={() => {getScore()}}>Get Score</MyScore>
 
         </Link>
         {/* how to get this updated? route to another page?  Show results on another page?  show who I got right on another page? */}

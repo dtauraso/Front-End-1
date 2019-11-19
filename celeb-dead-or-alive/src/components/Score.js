@@ -5,7 +5,8 @@ function Score(props) {
     return (
 
         <div>
-            <p>{String(props.score)}</p>
+            <p>Congratulations You got</p>
+            <p>{String(props.score) + " right !"}</p>
         </div>
     )
 };

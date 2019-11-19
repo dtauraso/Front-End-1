@@ -10,7 +10,7 @@ function App() {
     <div className="App">
 
       <nav>
-        <Link to="/quiz">Quiz</Link>
+        <Link to="/quiz" onClick={() => {setPlayerScore(0)}}>Quiz</Link>
       </nav>
 
       <Route path="/quiz"
