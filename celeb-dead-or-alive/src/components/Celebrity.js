@@ -5,18 +5,6 @@ import styled from "styled-components"
 
 function Celebrity(props) {
 
-    // .CelebrityImage {
-  
-//     max-width: 500px; /* bounds on image */
-    
-//     margin: 0 auto; /* centering image */
-//     margin-top: 50px;
-//   }
-//   .pic {
-//     /* so image is not too large */
-//     width: 50%;
-  
-//   }
 
     const CelebrityImage = styled.div`
         max-width: 500px; /* bounds on image */
@@ -31,13 +19,10 @@ function Celebrity(props) {
         width: 50%;
 
     `
-    console.log("stuff for celebrity", props, props.url)
+    // console.log("stuff for celebrity", props, props.url)
     return (
         <div>
-                {/* put in a card */}
-                {/*  */}
                 <CelebrityImage>
-                    {/* show ith url grabbed by useEffect */}
                     <Pic src={props.celebrity.image}/>
                 </CelebrityImage>
                
