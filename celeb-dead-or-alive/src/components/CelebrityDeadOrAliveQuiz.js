@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
-import Celebrities from "./Celebrities.js"
+import {Link} from "react-router-dom";
+import Celebrities from "./Celebrities.js";
 import Celebrity from "./Celebrity";
 // get the local celeb data here as an array
 // get the ith celebrity
 // axios.get(api/celebrities)
 // the dummy data is misattributed
-function CelebrityDeadOrAliveQuiz() {
+function CelebrityDeadOrAliveQuiz(props) {
     // score
     // just realize I'm supposed to keep track of the celebs they got right not just count all the alive ones
     const [score, setScore] = useState(0)
@@ -27,7 +28,9 @@ function CelebrityDeadOrAliveQuiz() {
         9: 0,
 
     })
-    // let x = myCelebrities.map(celebrity => ( {...celebrity, isSelected: false}) )
+
+    // setMyCelebrities(myCelebrities.map(celebrity => ( {...celebrity, isSelected: false}) ))
+    // if setter changes state react rerenders
     // can't use setMyCelebrities because react goes into an infinite rerendering loop
     // myCelebrities = x
     console.log(myCelebrities)
@@ -58,20 +61,28 @@ function CelebrityDeadOrAliveQuiz() {
     // useEffect(() => {
 
     // }, [countedCelebs])
-    const aliveButton = (celebrity) => {
+    const aliveButton = (celebrity, event) => {
         // console.log("i am alive")
         // now we have a way to tell if the celeb is dead or alive
-        console.log("I am the object they clicked on", celebrity)
+        // console.log("I am the object they clicked on", celebrity)
         if(!chosenCelebs[celebrity.key]) {
             if(celebrity.alive) {
                 setScore(score + 1)
-                setCountedCelebs(countedCelebs + 1)
-                console.log("are alive")
+                // console.log("are alive")
+                event.target.classList.toggle("right")
 
+                // want to update the button's background color
+                // to indicate the users choice
+                // button.style.background = some color
                 // very convenient with ...chosenCelebs and [celebrity.key]
                 setChosenCelebs({...chosenCelebs, [celebrity.key]: 1})
     
+            } else {
+                event.target.classList.toggle("wrong")
+
             }
+            setCountedCelebs(countedCelebs + 1)
+
     
         }
         // aliveScore += 1
@@ -81,20 +92,27 @@ function CelebrityDeadOrAliveQuiz() {
         // ith_celeb += 1
     }
 
-    const deadbutton = (celebrity) => {
+    const deadbutton = (celebrity, event) => {
         // console.log("i am dead")
         // console.log("I am the object they clicked on", celebrity)
         if(!chosenCelebs[celebrity.key]) {
 
             if(!celebrity.alive) {
                 setScore(score + 1)
-                setCountedCelebs(countedCelebs + 1)
+                event.target.classList.toggle("right")
+
                 // console.log("are dead")
 
                 // very convenient with ...chosenCelebs and [celebrity.key]
                 setChosenCelebs({...chosenCelebs, [celebrity.key]: 1})
 
             }
+            else {
+                event.target.classList.toggle("wrong")
+
+            }
+            setCountedCelebs(countedCelebs + 1)
+
         }
             // countedCelebs += 1
         // console.log(aliveScore)
@@ -102,10 +120,12 @@ function CelebrityDeadOrAliveQuiz() {
         // they are dead so don't add to score
     }
     const getScore = () => {
-        console.log(countedCelebs)
+        // console.log("celebs selected", countedCelebs)
         if(countedCelebs === 10) {
             // setScore(aliveScore)
-            console.log("You got", score, "/ 10", "right")
+            // console.log("You got", score, "/ 10", "right")
+            // console.log(props)
+            props.setPlayerScore(score)
 
         }
     }
@@ -123,12 +143,33 @@ function CelebrityDeadOrAliveQuiz() {
         // map only worked when put into a div
         <div>
         {myCelebrities.map((celebrity) => (
-            <Celebrity key={celebrity.key} celebrity={celebrity} aliveButton={() => aliveButton(celebrity)} deadButton={() => deadbutton(celebrity)}/>
+            <Celebrity
+            key={celebrity.key}
+            celebrity={celebrity}
+            aliveButton={(e) => 
+                {
+                    // console.log("here", e)
+                    // e.target.classList.toggle("right")
+                    aliveButton(celebrity, e)
+                    // return wasClicked => true
+                }
+            
+            }
+            deadButton={(e) =>
+                {
+                deadbutton(celebrity, e)
+                }
+            }
+            
+            />
 
         ))
 
         }
-        <button onClick={() => {getScore()}}>Get Score</button>
+        <Link to="/score">
+            <button onClick={() => {getScore()}}>Get Score</button>
+
+        </Link>
         {/* how to get this updated? route to another page?  Show results on another page?  show who I got right on another page? */}
         {/* {String(aliveScore)} */}
         </div>

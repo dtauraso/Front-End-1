@@ -19,6 +19,23 @@ function Celebrity(props) {
         width: 50%;
 
     `
+
+    // want the button to color differently with css inside a styled-component if the user clicks on it
+    // const Button = styled.button`
+    //     // background-color: lightblue;
+    //     // outline: none;
+    // there seems to be no way to get knowledge of the event in here so the conditional is run right
+    //     background-color: ${props => props.aliveButton ? 'red' : 'lightblue'}; 
+
+    // `
+
+//     const ButtonInActive = styled.button`
+//         // background-color: lightblue;
+//         // outline: none;
+
+
+// `
+
     // console.log("stuff for celebrity", props, props.url)
     return (
         <div>

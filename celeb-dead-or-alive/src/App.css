@@ -21,3 +21,14 @@
   color: #09d3ac;
 }
 
+.right {
+
+  background-color: lightblue;
+  outline: none;
+}
+
+.wrong {
+
+  background-color: red;
+  outline: none;
+}
