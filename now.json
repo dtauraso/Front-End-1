@@ -8,5 +8,5 @@
         "config": { "distDir": "build" }
       }
     ],
-    "routes": [{ "src": "/(.*)", "dest": "celeb-dead-or-alive/$1" }]
+    "routes": [{ "src": "/(.*)", "dest": "index.js" }]
   } 
