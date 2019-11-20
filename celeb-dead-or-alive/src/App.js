@@ -1,34 +1,62 @@
-import React, { Component } from 'react';
-import LogIn from './components/users/LogIn';
-import SignUp from '../src/components/SignUp';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import axiosWithAuth from './Component/utils/axiosWithAuth';
-import PrivateRoute from './Component/utils/PrivateRoute';
 
+import React, {useState} from 'react';
+import { Route, Link } from "react-router-dom";
 import './App.css';
+import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
+import Score from "./components/Score";
 
 
 
-class App extends Component {
-	state = {
-		data: []
-	};
+function App() {
 
-	
+  const [playerScore, setPlayerScore] = useState(0)
+  const [chosenCelebs, setChosenCelebs] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+
+})
+  return (
+    <div className="App">
+
+      <nav>
+        <Link to="/quiz" onClick={() => {
+          setPlayerScore(0)
+          
+          }}>Quiz</Link>
+      </nav>
+
+      
+      <Route path="/quiz"
+        render={(props) => <CelebrityDeadOrAliveQuiz
+                              {...props}
+                              setPlayerScore={setPlayerScore}
+                              score={playerScore}
+                              setChosenCelebs={(data) => setChosenCelebs(data)}
+                              chosenCelebs={chosenCelebs}
+                              />}
+        />
 
 
-		return (
+      <Route path="/score"
+            // component={Movie}
+            // high level prop stuff
+            // ...container = dump contents into whatever is running this
+            // props is used by the Route to send to the component I'm returning
+            render={(props) =>  <Score {...props} score={playerScore}/>}
+             />
+    </div>
+  );
+}
 
-		
-			<Router>
-		
-				<Route exact path="/SignUp" component={SignUp} />
-				<Route exact path="/login" component={LogIn} />
-			</Router>
-	
-		);
-    }
 
-  
+
 
 export default App;
