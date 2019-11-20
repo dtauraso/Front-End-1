@@ -3,10 +3,10 @@
     "name": "celeb-dead-or-alive",
     "builds": [
       {
-        "src": "app.js",
+        "src": "celeb-dead-or-alive/package.json",
         "use": "@now/static-build",
         "config": { "distDir": "build" }
       }
     ],
-    "routes": [{ "src": "/(.*)", "dest": "app.js" }]
+    "routes": [{ "src": "/(.*)", "dest": "celeb-dead-or-alive/$1" }]
   } 
