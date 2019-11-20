@@ -1,0 +1,9 @@
+[build]
+  base    = "./celeb-dead-or-alive"
+  publish = "./celeb-dead-or-alive/build"
+  command = "yarn build"
+    [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
