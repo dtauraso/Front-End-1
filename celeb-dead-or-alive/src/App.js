@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Timer from './Timer'
+import Timer from './Timer';
 import NewUser from "./Form"
 
 
@@ -10,10 +10,13 @@ class App extends Component{
     return(
       <div className='App'>
         <Timer />
+        <NewUser />
       </div>
     )
-  }
-}
+    }
+  };
+ 
+
 // function App() {
 //   return (
 //     <div className="App">
