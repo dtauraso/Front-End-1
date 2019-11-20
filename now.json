@@ -3,7 +3,7 @@
     "name": "celeb-dead-or-alive",
     "builds": [
       {
-        "src": "celeb-dead-or-alive/package.json",
+        "src": "app.js",
         "use": "@now/static-build",
         "config": { "distDir": "build" }
       }
