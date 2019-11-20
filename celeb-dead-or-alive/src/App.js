@@ -14,10 +14,13 @@ function App() {
       </nav>
 
       <Route path="/quiz"
-        render={(props) => <CelebrityDeadOrAliveQuiz {...props} setPlayerScore={setPlayerScore}/>}
+        render={(props) => <CelebrityDeadOrAliveQuiz
+                              {...props}
+                              setPlayerScore={setPlayerScore}
+                              score={playerScore}
+                              />}
         />
 
-      
 
       <Route path="/score"
             // component={Movie}

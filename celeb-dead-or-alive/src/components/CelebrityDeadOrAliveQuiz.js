@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components";
+import Score from "./Score";
+
 // import Celebrities from "./Celebrities.js";
 import Celebrity from "./Celebrity";
 // get the local celeb data here as an array
@@ -25,6 +27,8 @@ function CelebrityDeadOrAliveQuiz(props) {
     // score
     // just realize I'm supposed to keep track of the celebs they got right not just count all the alive ones
     const [score, setScore] = useState(0)
+    const [showState, setShowState] = useState(false)
+    // var showState = false
     // this is so we can use setChosenCelebs with the spread operator and object overwrite closure []
     // to set the selected status of any individual celeb
     // We can't use an array because we then would have to make an object representing each array with useState
@@ -116,6 +120,7 @@ function CelebrityDeadOrAliveQuiz(props) {
     const deadbutton = (celebrity, event) => {
         // console.log("i am dead")
         // console.log("I am the object they clicked on", celebrity)
+        // anti-abuse check
         if(!chosenCelebs[celebrity.id]) {
 
             if(celebrity.dead) {
@@ -151,7 +156,24 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         }
     }
+    const showModal = () => {
+        getScore()
+        if(!showState) {
+            setShowState(true)
+            // console.log(showState)
+
+            // return <div>modal works</div>
+    
+        } else {
+            setShowState(false)
+
+            // return null;
+        }
+
+    }
     // put in readme
+    {/* yarn add styled-components, axios, react-router-dom */}
+
     // About Wunderlist 2.0
 // Wunderlist 2.0 takes your traditional to-do list app and automates it. It not only allows you to write your to-do, work, grocery, trip and household lists, but allows you to set up recurring to do lists by date and time. (Think recurring events on google calendar + to-do list app). No matter how much is on your plate, Wunderlist 2.0 makes it super easy to remember all the little recurring to-dos and surprise to-dos that pop up unexpectedly.
 
@@ -189,10 +211,20 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         }
 
-        <Link to="/score">
+        <button onClick={e => {
+                showModal()
+        }}>Show Modal</button>
+
+        <Score props={{...props,
+                            showScore: showState,
+                            changeShowScore: () => setShowState(showState)
+                            
+                            }}/>
+        
+        {/* <Link to="/score">
             <MyScore onClick={() => {getScore()}}>Get Score</MyScore>
 
-        </Link>
+        </Link> */}
         {/* how to get this updated? route to another page?  Show results on another page?  show who I got right on another page? */}
         {/* {String(aliveScore)} */}
         </div>
