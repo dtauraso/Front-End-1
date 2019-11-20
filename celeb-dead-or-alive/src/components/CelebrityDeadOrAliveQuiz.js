@@ -11,13 +11,13 @@ import Celebrity from "./Celebrity";
 // axios.get(api/celebrities)
 // the dummy data is misattributed
 function CelebrityDeadOrAliveQuiz(props) {
-
+    // console.log(props)
     var [myCelebrities, setMyCelebrities] = useState([])
 
     useEffect(() => {
         axios.get("https://celebritydeadoralive-backend.herokuapp.com/api/celebs")
             .then(response => {
-                console.log("my celebs", response)
+                // console.log("my celebs", response)
                 setMyCelebrities(response.data)
             })
 
@@ -33,22 +33,11 @@ function CelebrityDeadOrAliveQuiz(props) {
     // to set the selected status of any individual celeb
     // We can't use an array because we then would have to make an object representing each array with useState
     // this is already complicated, no need to put in a composition of celeb within an array just to update a selected state
-    const [chosenCelebs, setChosenCelebs] = useState({
-        0: 0,
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-        6: 0,
-        7: 0,
-        8: 0,
-        9: 0,
-
-    })
+    
     const MyScore = styled.button`
     
         margin-top: 50px;
+        margin-bottom: 50px;
         // font-weight: 20px;
     `
 
@@ -56,7 +45,7 @@ function CelebrityDeadOrAliveQuiz(props) {
     // if setter changes state react rerenders
     // can't use setMyCelebrities because react goes into an infinite rerendering loop
     // myCelebrities = x
-    console.log(myCelebrities)
+    // console.log(myCelebrities)
     // can't use a useState for tallying the score cause entire list will rerender
     // var aliveScore = 0
     const totalCelebs = 10
@@ -88,7 +77,10 @@ function CelebrityDeadOrAliveQuiz(props) {
         // console.log("i am alive")
         // now we have a way to tell if the celeb is dead or alive
         // console.log("I am the object they clicked on", celebrity)
-        if(!chosenCelebs[celebrity.id]) {
+
+
+        if(!props.chosenCelebs[celebrity.id]) {
+            // console.log("here")
             if(!celebrity.dead) {
                 setScore(score + 1)
                 // console.log("are alive")
@@ -98,11 +90,14 @@ function CelebrityDeadOrAliveQuiz(props) {
                 // to indicate the users choice
                 // button.style.background = some color
                 // very convenient with ...chosenCelebs and [celebrity.key]
-                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+                // console.log({...(props.chosenCelebs), [celebrity.id]: 1})
+                props.setChosenCelebs({...props.chosenCelebs, [celebrity.id]: 1})
+                // console.log("chosen", props.chosenCelebs)
+
     
             } else {
                 event.target.classList.toggle("wrong")
-                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+                props.setChosenCelebs({...props.chosenCelebs, [celebrity.id]: 1})
 
 
             }
@@ -121,7 +116,8 @@ function CelebrityDeadOrAliveQuiz(props) {
         // console.log("i am dead")
         // console.log("I am the object they clicked on", celebrity)
         // anti-abuse check
-        if(!chosenCelebs[celebrity.id]) {
+        // console.log("chosen", props.chosenCelebs)
+        if(!props.chosenCelebs[celebrity.id]) {
 
             if(celebrity.dead) {
                 setScore(score + 1)
@@ -130,11 +126,11 @@ function CelebrityDeadOrAliveQuiz(props) {
                 // console.log("are dead")
 
                 // very convenient with ...chosenCelebs and [celebrity.key]
-                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+                props.setChosenCelebs({...props.chosenCelebs, [celebrity.id]: 1})
 
             } else {
                 event.target.classList.toggle("wrong")
-                setChosenCelebs({...chosenCelebs, [celebrity.id]: 1})
+                props.setChosenCelebs({...props.chosenCelebs, [celebrity.id]: 1})
 
 
             }
@@ -211,20 +207,24 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         }
 
-        <button onClick={e => {
+        <MyScore onClick={e => {
                 showModal()
-        }}>Show Modal</button>
+        }}>Show Modal</MyScore>
 
         <Score props={{...props,
                             showScore: showState,
                             changeShowScore: () => setShowState(showState)
                             
                             }}/>
-        
-        {/* <Link to="/score">
-            <MyScore onClick={() => {getScore()}}>Get Score</MyScore>
+        {/* make a reset button
+        link to quiz
+        reset the selections
+        */}
+        {/* send them to the home page so the quiz resets */}
+        <Link to="/">
+            <MyScore >reset quiz</MyScore>
 
-        </Link> */}
+        </Link>
         {/* how to get this updated? route to another page?  Show results on another page?  show who I got right on another page? */}
         {/* {String(aliveScore)} */}
         </div>

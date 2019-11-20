@@ -6,18 +6,37 @@ import Score from "./components/Score";
 function App() {
 
   const [playerScore, setPlayerScore] = useState(0)
+  const [chosenCelebs, setChosenCelebs] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+
+})
   return (
     <div className="App">
 
       <nav>
-        <Link to="/quiz" onClick={() => {setPlayerScore(0)}}>Quiz</Link>
+        <Link to="/quiz" onClick={() => {
+          setPlayerScore(0)
+          
+          }}>Quiz</Link>
       </nav>
 
+      
       <Route path="/quiz"
         render={(props) => <CelebrityDeadOrAliveQuiz
                               {...props}
                               setPlayerScore={setPlayerScore}
                               score={playerScore}
+                              setChosenCelebs={(data) => setChosenCelebs(data)}
+                              chosenCelebs={chosenCelebs}
                               />}
         />
 
