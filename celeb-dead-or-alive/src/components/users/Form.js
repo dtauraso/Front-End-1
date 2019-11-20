@@ -36,18 +36,13 @@ const NewUser = ({ values, errors, touched, status }) => {
             <Form class='FormMASTER'>
                 <StyledForm class='Form'>
                     <div>
-                        <StyledEntry>Name<Field type="text" name="name" placeholder="Name" /></StyledEntry>
-                        {touched.name && errors.name && (<p className="error">{errors.name}</p>)}
-                    </div>
-                    <div>
-                        <StyledEntry>Email<Field type="email" name="email" placeholder="Email" /></StyledEntry>
-                        {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
+                        <StyledEntry>Username<Field type="text" username="username" placeholder="Username" /></StyledEntry>
+                        {touched.username && errors.username && (<p className="error">{errors.username}</p>)}
                     </div>
                     <div>
                         <StyledEntry>Password<Field type="password" name="password" placeholder="●●●●●●●●" /></StyledEntry>
                         {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
                     </div>
-                    <StyledEntry>I have read and agree to Terms of Services: <Field type="checkbox" name="terms" checked={values.terms} /></StyledEntry>
                     {touched.terms && errors.terms && (<p className="error">{errors.terms}</p>)}
                     <button>Submit</button>
                 </StyledForm>
@@ -55,8 +50,7 @@ const NewUser = ({ values, errors, touched, status }) => {
             {/* Prints user info after submission */}
             {user.map(person => (
                 <ul key={person.id}>
-                    <li>Name: {person.name}</li>
-                    <li>Email: {person.email}</li>
+                    <li>Username: {person.username}</li>
                     <li>Password: {"*".repeat(person.password.length)}</li>
                 </ul>
             ))}
@@ -65,21 +59,17 @@ const NewUser = ({ values, errors, touched, status }) => {
     )
 }
 const FormikNewUser = withFormik({
-    mapPropsToValues({ name, email, password, terms }) {
+    mapPropsToValues({ username, password, }) {
         return {
-            name: name || "",
-            email: email || "",
+            username: username || "",
             password: password || "",
-            terms: terms || false
         };
     },
 
 
     validationSchema: Yup.object().shape({
-        name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
-        email: Yup.string().email("Email not valid.").required("Required field."),
+        username: Yup.string().min(2, "Username must have more than one character.").required("Required field."),
         password: Yup.string().min(6, "Password must have at least 6 characters.").required("Required field."),
-        terms: Yup.boolean().oneOf([true], "Must accept Terms of Service.").required()
     }),
 
     handleSubmit(values, { setStatus }) {
