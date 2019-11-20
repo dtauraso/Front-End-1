@@ -30,12 +30,23 @@ const MyForm = ( {values, errors, touched, status, handleChange } ) => {
                 {touched.name && errors.name && (
                     <p className="error">{errors.name}</p>
                 )}
+
+                <Field
+                    type="text"
+                    name="password"
+                    placeholder="password"/>
+                {
+                    touched.password && errors.password && (
+                        <p className="error">{errors.password}</p>
+                    )
+                }
                 <button>Submit</button>
             </Form>
             {users.map(user => (
                <ul key={user.id}>
                 <li>Username: {user.username}</li>
-                
+                <li>Password: {users.password}</li>
+
                </ul>
                 
             ))}
@@ -45,12 +56,13 @@ const MyForm = ( {values, errors, touched, status, handleChange } ) => {
 
 const FormikUserForm = withFormik({
     // user filling out form
-    mapPropsToValues({username}) {
+    mapPropsToValues({username, password}) {
         // holding the state of the form
         // each filed can have a default "0" value or whatever the user types in
 
         return {
-            username: username || ""
+            username: username || "",
+            password: password || ""
 
         };
     },
@@ -59,11 +71,16 @@ const FormikUserForm = withFormik({
         username: Yup.string()
         .min(2, 'Too short!')
         .max(50, 'Too Long!')
-        .required('a username is required')
+        .required('a username is required'),
+        password: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required("a password is required")
     }),
     // send the user data to the server
     // same values as above
     handleSubmit(values, { setStatus, resetForm }) {
+        console.log(values)
         axios   .post("https://reqres.in/api/users/", values)
                 .then(res => {
                     console.log("received", res.data)
