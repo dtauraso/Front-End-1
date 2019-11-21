@@ -34,7 +34,7 @@ function Score(props) {
 
             <Modal>
                 <p>Congratulations You got</p>
-                <p>{String(props.props.score) + " right !"}</p>
+                <p>{String(props.props.score) + " out of 10 right !"}</p>
             </Modal>
         )
     
