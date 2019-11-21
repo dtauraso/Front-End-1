@@ -18,10 +18,21 @@ class Timer extends Component {
         this.state = {
             count: 0
         }
+        this.stopTimer = this.stopTimer.bind(this)
+
     }
+    stopTimer() {
+        this.setState({isOn: false})
+        clearInterval(this.timer)
+        console.log("stop")
+      }
     render() {
+        let stop = (this.state.time == 0 || !this.state.isOn) ?
+        null :
+        <button onClick={this.stopTimer}>stop</button>
         const {count} = this.state
         return(
+            <div>
             <Motion defaultStyle={{ x: -200, opacity: 0}}
              style={{ x: spring(0), opacity: spring(1)}}
              >
@@ -29,10 +40,13 @@ class Timer extends Component {
                  <TimerStyle style={{ opacity: style.opacity}}>
                     <div>
                         <h1>Time: {count} seconds</h1>
+                        <button onClick={this.stopTimer}>stop</button>
+                        {stop}
                     </div>
                 </TimerStyle>
                 )}              
             </Motion>
+            </div>
         )
     }
 
