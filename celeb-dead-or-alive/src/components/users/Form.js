@@ -30,6 +30,17 @@ const NewUser = ({ values, errors, touched, status }) => {
             setUser([...user, status])
         }
     }, [status]);
+   
+    const handleSubmit = e => {
+        event.preventDefault();
+        axios
+          .post(`https://celebritydeadoralive-backend.herokuapp.com/api/users`, users)
+          .then(res => {
+            console.log("I am here", res);
+            props.history.push("/LogIn");
+          });
+      };
+    
 
     return (
         <div>
