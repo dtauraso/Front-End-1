@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "celeb-dead-or-alive",
+    "builds": [
+      {
+        "src": "celeb-dead-or-alive/package.json",
+        "use": "@now/static-build",
+        "config": { "distDir": "build" }
+      }
+    ],
+    "routes": [{ "src": "/(.*)", "dest": "celeb-dead-or-alive/$1" }]
+  } 

@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './App.css';
 import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
 import Score from "./components/Score";
+import Login from "./components/Login"
 function App() {
 
   const [playerScore, setPlayerScore] = useState(0)
@@ -26,7 +27,9 @@ function App() {
         <Link to="/quiz" onClick={() => {
           setPlayerScore(0)
           
-          }}>Quiz</Link>
+          }}>Quiz   </Link>
+        {/* just to have a place to get to the component for now */}
+        <Link to="/login">Login</Link>
       </nav>
 
       
@@ -48,6 +51,9 @@ function App() {
             // props is used by the Route to send to the component I'm returning
             render={(props) =>  <Score {...props} score={playerScore}/>}
              />
+      <Route path="/login"
+            render={(props) => <Login {...props} score={playerScore}/> }
+            />
     </div>
   );
 }
