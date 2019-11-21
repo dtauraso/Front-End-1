@@ -35,13 +35,13 @@ Team
 All links will direct to each person's GitHub profile.
 
 
-*   **Caroline Stinger**, UI Developer [(GitHub)](https://github.com/kelpiy)
-*   **Raj Upadhyaya**, UI Developer [(GitHub)](https://github.com/rUpadhyayahacks)
-*   **David Tauraso**, FE Developer [(GitHub)](https://github.com/dtauraso)
-*   **Hunter Allan**, FE Developer [(GitHub)](https://github.com/Hunter5555)
-*   **Rebecca Joyner**, FE Developer [(GitHub)](https://github.com/rebeccajoyner)
-*   **Forrest Darabian**, BE Developer [(GitHub)](https://github.com/Forrestdarabian)
-*   **Levi Simpson**, Project Manager [(GitHub)](https://github.com/Levi-Huynh)
+*   **Caroline Stinger** - UI Developer [(GitHub)](https://github.com/kelpiy)
+*   **Raj Upadhyaya** - UI Developer [(GitHub)](https://github.com/rUpadhyayahacks)
+*   **David Tauraso** - FE Developer [(GitHub)](https://github.com/dtauraso)
+*   **Hunter Allan** - FE Developer [(GitHub)](https://github.com/Hunter5555)
+*   **Rebecca Joyner** - FE Developer [(GitHub)](https://github.com/rebeccajoyner)
+*   **Forrest Darabian** - BE Developer [(GitHub)](https://github.com/Forrestdarabian)
+*   **Levi Simpson** - Project Manager [(GitHub)](https://github.com/Levi-Huynh)
 
 How to contribute
 ---
