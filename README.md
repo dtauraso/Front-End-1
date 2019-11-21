@@ -41,7 +41,7 @@ Team
 *   **Forrest Darabian**, BE Developer [(GitHub)](https://github.com/Forrestdarabian)
 *   **Levi Simpson**, Project Manager [(GitHub)](https://github.com/Levi-Huynh)
 
-How to contribute:
+How to contribute
 ---
 
 If you have styling suggestions, or extra info you think should be added to the app, feel free to make any changes:
