@@ -43,6 +43,10 @@ Team
 
 How to contribute:
 ---
+
+If you have styling suggestions, or extra info you think should be added to the app, feel free to make any changes:
+
+
 *   Fork, Clone, and Download the repository
 *   Change any files with necessary content
 *   Submit a Pull Request
