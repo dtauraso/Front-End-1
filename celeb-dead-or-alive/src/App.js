@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './App.css';
 import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
 import Score from "./components/Score";
-import NewUser from './components/users/Form'
+import Form from './components/users/Form'
 import Login from "./components/Login"
 function App() {
 

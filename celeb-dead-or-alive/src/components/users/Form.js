@@ -32,16 +32,6 @@ const NewUser = ({ values, errors, touched, status }) => {
         }
     }, [status]);
    
-    // const handleSubmit = e => {
-    //     event.preventDefault();
-    //     axios
-    //       .post(`https://celebritydeadoralive-backend.herokuapp.com/api/users`, users)
-    //       .then(res => {
-    //         console.log("I am here", res);
-    //         props.history.push("/LogIn");
-    //       });
-    //   };
-    
 
     return (
         <div>
@@ -87,7 +77,7 @@ const FormikNewUser = withFormik({
 
     handleSubmit(values, { setStatus }) {
         axios
-            .post("https://reqres.in/api/users/", values)
+            .post("https://celebritydeadoralive-backend.herokuapp.com/api/users", values)
             .then(response => {
                 console.log(response);
                 setStatus(response.data);
