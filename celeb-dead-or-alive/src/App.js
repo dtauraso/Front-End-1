@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './App.css';
 import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
 import Score from "./components/Score";
-import Form from './components/users/Form'
+import NewUser from './components/users/Form';
 import Login from "./components/Login"
 function App() {
 
@@ -33,8 +33,7 @@ function App() {
         <Link to="/login">Login</Link>
       </nav>
       <nav>
-        <Link to="/NewUser" onClick={() => {
-          }}>Sign Up</Link>
+        <Link to="/newuser">Sign Up</Link>
       </nav>
 
       
@@ -58,6 +57,9 @@ function App() {
              />
       <Route path="/login"
             render={(props) => <Login {...props} score={playerScore}/> }
+            />
+      <Route path="/newuser"
+            render={(props) => <NewUser {...props} score={playerScore}/> }
             />
     </div>
   );
