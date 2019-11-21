@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './App.css';
 import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
 import Score from "./components/Score";
+import NewUser from './components/users/Form';
 import Login from "./components/Login"
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
         {/* just to have a place to get to the component for now */}
         <Link to="/login">Login</Link>
       </nav>
+      <nav>
+        <Link to="/newuser">Sign Up</Link>
+      </nav>
 
       
       <Route path="/quiz"
@@ -53,6 +57,9 @@ function App() {
              />
       <Route path="/login"
             render={(props) => <Login {...props} score={playerScore}/> }
+            />
+      <Route path="/newuser"
+            render={(props) => <NewUser {...props} score={playerScore}/> }
             />
     </div>
   );
