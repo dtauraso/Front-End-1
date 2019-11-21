@@ -1,6 +1,12 @@
 .App {
   text-align: center;
 }
+.NavBar {
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
 
 .App-logo {
   height: 40vmin;

@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
 
-      <nav>
+      <nav className="NavBar">
         <Link to="/quiz" onClick={() => {
           setPlayerScore(0)
           
