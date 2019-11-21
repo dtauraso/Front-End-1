@@ -23,6 +23,7 @@ tech installed using yarn add
 *   redux
 *   yup
 *   styled-components
+*   less
 
 Programs used to make the app
 
