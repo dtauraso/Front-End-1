@@ -39,7 +39,7 @@ Team
 *   **Hunter Allan**, FE Developer [(GitHub)](https://github.com/Hunter5555)
 *   **Rebecca Joyner**, FE Developer [(GitHub)](https://github.com/rebeccajoyner)
 *   **Forrest Darabian**, BE Developer [(GitHub)](https://github.com/Forrestdarabian)
-*   **Levi Simpson**, Project Mangager [(GitHub)](https://github.com/Levi-Huynh)
+*   **Levi Simpson**, Project Manager [(GitHub)](https://github.com/Levi-Huynh)
 
 How to contribute:
 ---
