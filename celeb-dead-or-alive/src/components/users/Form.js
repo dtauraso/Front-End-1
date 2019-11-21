@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 import styled from "styled-components"
@@ -31,15 +32,15 @@ const NewUser = ({ values, errors, touched, status }) => {
         }
     }, [status]);
    
-    const handleSubmit = e => {
-        event.preventDefault();
-        axios
-          .post(`https://celebritydeadoralive-backend.herokuapp.com/api/users`, users)
-          .then(res => {
-            console.log("I am here", res);
-            props.history.push("/LogIn");
-          });
-      };
+    // const handleSubmit = e => {
+    //     event.preventDefault();
+    //     axios
+    //       .post(`https://celebritydeadoralive-backend.herokuapp.com/api/users`, users)
+    //       .then(res => {
+    //         console.log("I am here", res);
+    //         props.history.push("/LogIn");
+    //       });
+    //   };
     
 
     return (

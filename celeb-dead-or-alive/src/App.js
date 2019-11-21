@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import './App.css';
 import CelebrityDeadOrAliveQuiz from "./components/CelebrityDeadOrAliveQuiz";
 import Score from "./components/Score";
+import NewUser from './components/users/Form'
 function App() {
 
   const [playerScore, setPlayerScore] = useState(0)
@@ -27,6 +28,10 @@ function App() {
           setPlayerScore(0)
           
           }}>Quiz</Link>
+      </nav>
+      <nav>
+        <Link to="/NewUser" onClick={() => {
+          }}>Sign Up</Link>
       </nav>
 
       
