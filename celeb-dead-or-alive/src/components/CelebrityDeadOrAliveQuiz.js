@@ -167,6 +167,15 @@ function CelebrityDeadOrAliveQuiz(props) {
         }
 
     }
+    const showScoreLabel = () => {
+
+        // use ! because showState is initially set as false
+        if(!showState) {
+            return "Show score"
+        } else {
+            return "Hide score"
+        }
+    }
     // put in readme
     {/* yarn add styled-components, axios, react-router-dom, formik, yup */}
 
@@ -209,7 +218,7 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         <MyScore onClick={e => {
                 showModal()
-        }}>Show Modal</MyScore>
+        }}>{showScoreLabel()}</MyScore>
 
         <Score props={{...props,
                             showScore: showState,

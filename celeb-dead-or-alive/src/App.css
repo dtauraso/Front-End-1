@@ -33,7 +33,7 @@
   outline: none;
 }
 
-.modal {
+/* .modal {
   width: 500px;
   background: white;
   border: 1px solid #ccc;
@@ -44,7 +44,7 @@
   transform: scale(1);  
   opacity: 1;
   visibility: visible;
-}
+} */
   /* &.off {
     opacity: 0;
     visibility: hidden;
