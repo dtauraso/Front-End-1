@@ -30,10 +30,9 @@ function App() {
           
           }}>Quiz   </Link>
         {/* just to have a place to get to the component for now */}
-        <Link to="/login">Login</Link>
-      </nav>
-      <nav>
+        <Link to="/login">Login   </Link>
         <Link to="/signup">Sign Up</Link>
+
       </nav>
 
       
