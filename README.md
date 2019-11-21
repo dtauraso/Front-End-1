@@ -1,5 +1,6 @@
 # Front-End
 About
+====
     Celebrity Dead or Alive is a quiz.  Can you guess the status of all
     10 celebrities?  Try it here.
 
