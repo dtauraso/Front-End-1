@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Motion, spring} from "react-motion"
 
 const TimerStyle = styled.span`
-font-size: 1.1rem;
+font-size: 2rem;
 margin: 2.5%;
 width: 25rem;
 padding-left: 2.5%;
@@ -13,54 +13,75 @@ display: inline-block;
 color:  green;
 `
 class Timer extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            count: 0
-        }
-        this.stopTimer = this.stopTimer.bind(this)
 
-    }
-    stopTimer() {
-        this.setState({isOn: false})
-        clearInterval(this.timer)
-        console.log("stop")
+    constructor(props, context) {
+      super(props, context);
+      this.state = {
+        timePassed: 0,
+        milliseconds: '00',
+        seconds: '00',
+        minutes: '00'
       }
-    render() {
-        let stop = (this.state.time == 0 || !this.state.isOn) ?
-        null :
-        <button onClick={this.stopTimer}>stop</button>
-        const {count} = this.state
-        return(
-            <div>
-            <Motion defaultStyle={{ x: -200, opacity: 0}}
-             style={{ x: spring(0), opacity: spring(1)}}
-             >
-                 {style=> (  
-                 <TimerStyle style={{ opacity: style.opacity}}>
-                    <div>
-                        <h1>Time: {count} seconds</h1>
-                        <button onClick={this.stopTimer}>stop</button>
-                        {stop}
-                    </div>
-                </TimerStyle>
-                )}              
-            </Motion>
-            </div>
-        )
     }
-
-
-    componentDidMount(){
-        this.myInterval = setInterval(() => {
-            this.setState(prevState => ({
-            count: prevState.count + 1
-        }))
-    }, 1000)
-}
-componentWillUnmount(){
-    clearInterval(this.myInterval)
+  
+    formatter = (input) => {
+      const time = input.toString();
+      return time.length < 2 ? '0' + time : time.slice(-2);
     }
-}
+  
+    formatTime = () => {
+      this.setState({
+        milliseconds: this.formatter(this.state.timePassed),
+        seconds: this.formatter(Math.floor((this.state.timePassed / 100) % 60)),
+        minutes: this.formatter(Math.floor((this.state.timePassed / (100 * 60)) % 60))
+      });
+    }
+  
+    timeNow = () => {
+      let seconds = parseInt(this.state.timePassed, 10) + 1;
+      this.setState({ timePassed: seconds });
+      this.formatTime();
+    }
+  
+    resetTime = () => {
+      this.setState({
+        timePassed: 0,
+        milliseconds: '00',
+        seconds: '00',
+        minutes: '00'
+      });
+    }
+  
+    startTime = () => {
+      if(this.state.started === true){ return; }
+      this.interval = setInterval(this.timeNow, 10);
+      this.setState({ started: true });
+    }
+  
+    stopTime = () => {
+      window.clearInterval(this.interval);
+      this.setState({ started: false });
+    }
+  
+    componentWillUnmount = () => {
+      window.clearInterval(this.interval);
+    }
+  
+    render(){
+      return (
+          <TimerStyle>
+        <div className="timer">
+          <div className="timer__screen">
+            {this.state.minutes}<span className="timer__colon">:</span>
+            {this.state.seconds}<span className="timer__colon">:</span>
+            {this.state.milliseconds}</div>
+            <button className="timer__button" onClick={ this.startTime.bind(this) }>Start</button>
+            <button className="timer__button" onClick={ this.stopTime.bind(this) }>Stop</button>
 
-export default Timer;
+        </div>
+        </TimerStyle> 
+      )
+    };
+  }
+  
+  export default Timer;
