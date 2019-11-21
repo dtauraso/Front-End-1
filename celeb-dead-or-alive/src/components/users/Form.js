@@ -50,7 +50,6 @@ const NewUser = ({ values, errors, touched, status }) => {
             {user.map(person => (
                 <ul key={person.id}>
                     <li>Name: {person.name}</li>
-                    <li>Email: {person.email}</li>
                     <li>Password: {"*".repeat(person.password.length)}</li>
                 </ul>
             ))}
@@ -59,12 +58,10 @@ const NewUser = ({ values, errors, touched, status }) => {
     )
 }
 const FormikNewUser = withFormik({
-    mapPropsToValues({ name, email, password, terms }) {
+    mapPropsToValues({ name, password }) {
         return {
             name: name || "",
-            email: email || "",
             password: password || "",
-            terms: terms || false
         };
     },
 
@@ -88,4 +85,4 @@ const FormikNewUser = withFormik({
 
 
 
-export default FormikNewUser
+export default FormikNewUser;
