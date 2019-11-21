@@ -35,16 +35,18 @@ function App() {
   return (
     <div className="App">
 
-      <StyledNav>
+
+      <nav className="NavBar">
         <Link to="/quiz" onClick={() => {
           setPlayerScore(0)
           
           }}>Quiz   </Link>
         {/* just to have a place to get to the component for now */}
-        <Link to="/login">Login</Link>
-    
+
+        <Link to="/login">Login   </Link>
         <Link to="/signup">Sign Up</Link>
-      </StyledNav>
+
+      </nav>
 
       
       <Route path="/quiz"
