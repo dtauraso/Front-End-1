@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components";
 import Score from "./Score";
+import Timer from "./Timer";
 
 // import Celebrities from "./Celebrities.js";
 import Celebrity from "./Celebrity";
@@ -12,6 +13,7 @@ import Celebrity from "./Celebrity";
 // the dummy data is misattributed
 function CelebrityDeadOrAliveQuiz(props) {
     // console.log(props)
+
     var [myCelebrities, setMyCelebrities] = useState([])
 
     useEffect(() => {
@@ -88,7 +90,7 @@ function CelebrityDeadOrAliveQuiz(props) {
 
                 // want to update the button's background color
                 // to indicate the users choice
-                // button.style.background = some color
+                // timer.style.background = some color
                 // very convenient with ...chosenCelebs and [celebrity.key]
                 // console.log({...(props.chosenCelebs), [celebrity.id]: 1})
                 props.setChosenCelebs({...props.chosenCelebs, [celebrity.id]: 1})
@@ -191,6 +193,8 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         // map only worked when put into a div
         <div>
+            <Timer />
+
         {myCelebrities.map((celebrity) => (
             <Celebrity
             key={celebrity.id}
@@ -230,6 +234,7 @@ function CelebrityDeadOrAliveQuiz(props) {
         reset the selections
         */}
         {/* send them to the home page so the quiz resets */}
+
         <Link to="/">
             <MyScore >reset quiz</MyScore>
 
