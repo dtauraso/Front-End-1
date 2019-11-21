@@ -1,12 +1,17 @@
 # Front-End
+
+Looking for the viewable website?
+---
+[Click here!](https://celeb-dead-or-alive-nov2019.netlify.com/)
+
 About
-====
+---
 Celebrity Dead or Alive is a quiz.  Can you guess the status of all
 10 celebrities?  Try it here.
 
 
 Setup
-===
+---
 
 tech installed using yarn add
 *   axios
@@ -26,7 +31,7 @@ Programs used to make the app
 
 
 Team
-===
+---
 
 *   **Caroline Stinger**, UI Developer [(GitHub)](https://github.com/kelpiy)
 *   **Raj Upadhyaya**, UI Developer [(GitHub)](https://github.com/rUpadhyayahacks)
@@ -37,7 +42,7 @@ Team
 *   **Levi Simpson**, Project Mangager [(GitHub)](https://github.com/Levi-Huynh)
 
 How to contribute:
-===
+---
 *   Fork, Clone, and Download the repository
 *   Change any files with necessary content
 *   Submit a Pull Request
