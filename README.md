@@ -32,6 +32,9 @@ The following libraries were used for this webpage application:
 Team
 ---
 
+All links will direct to each person's GitHub profile.
+
+
 *   **Caroline Stinger**, UI Developer [(GitHub)](https://github.com/kelpiy)
 *   **Raj Upadhyaya**, UI Developer [(GitHub)](https://github.com/rUpadhyayahacks)
 *   **David Tauraso**, FE Developer [(GitHub)](https://github.com/dtauraso)
