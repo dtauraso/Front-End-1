@@ -37,9 +37,9 @@ Team
 *   **Levi Simpson**, Project Mangager [(GitHub)](https://github.com/Levi-Huynh)
 
 How to contribute:
-
-    Fork, Clone, and Download the repository
-    Change any files with necessary content
-    Submit a Pull Request
-        Please add the Celeb Dead or Alive team as Reviewers, so we can review your content before merging the pull request.
+===
+*   Fork, Clone, and Download the repository
+*   Change any files with necessary content
+*   Submit a Pull Request
+    *   Please add the Celeb Dead or Alive team as Reviewers, so we can review your content before merging the pull request.
 
