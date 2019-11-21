@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from 'styled-components';
 
-
+const StyledForm = styled.div`
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ background-color: darkgreen;
+`;
 
 const initialState = {
   username: "",
@@ -33,7 +39,7 @@ const SignUp = props => {
       <form onSubmit={handleSubmit}>
         <div className="maindiv">
           <div className="seconddiv">
-            <h3>Create a New Account</h3>
+            <h3>New User</h3>
             <div>
               <label>Username</label>
             </div>
@@ -51,21 +57,6 @@ const SignUp = props => {
               />
             </div>
 
-            {/* <div className="password">
-              <label>Email</label>
-            </div>
-            
-            <div>
-              <input
-                className="inputform "
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-                value={users.email}
-                required
-              />
-            </div> */}
 
             <div className="password">
               <label>Password</label>
