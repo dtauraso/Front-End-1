@@ -13,21 +13,19 @@ Celebrity Dead or Alive is a quiz.  Can you guess the status of all
 Setup
 ---
 
-tech installed using yarn add
-*   axios
-*   react
-*   react-dom
-*   react-router-dom
-*   formik
-*   react-redux
-*   redux
-*   yup
-*   styled-components
-*   less
-
-Programs used to make the app
+The following libraries were used for this webpage application:
 
 *   Visual Studio Code
+*   Axios
+*   React
+*   React-dom
+*   React-router-dom
+*   Formik
+*   React-redux
+*   Redux
+*   Yup
+*   Styled-components
+*   Less
 
 
 
