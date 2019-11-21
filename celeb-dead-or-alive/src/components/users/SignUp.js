@@ -6,7 +6,6 @@ import axios from "axios";
 
 const initialState = {
   username: "",
-  email: "",
   password: ""
 };
 
@@ -19,7 +18,7 @@ const SignUp = props => {
   };
 
   const handleSubmit = e => {
-    event.preventDefault();
+    // event.preventDefault();
     axios
       .post(`https://celebritydeadoralive-backend.herokuapp.com/api/users`, users)
       .then(res => {
@@ -52,7 +51,7 @@ const SignUp = props => {
               />
             </div>
 
-            <div className="password">
+            {/* <div className="password">
               <label>Email</label>
             </div>
             
@@ -66,7 +65,7 @@ const SignUp = props => {
                 value={users.email}
                 required
               />
-            </div>
+            </div> */}
 
             <div className="password">
               <label>Password</label>
