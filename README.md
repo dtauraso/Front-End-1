@@ -28,13 +28,13 @@ Programs used to make the app
 Team
 ===
 
-*   **Caroline Stinger**, UI Developer [(GitHub)](https://github.com/orgs/BW-Celeb-Dead-or-Alive/people/kelpiy)
-*   **Raj Upadhyaya**, UI Developer (GitHub)
-*   **David Tauraso**, FE Developer (GitHub)
-*   **Hunter Allan**, FE Developer (GitHub)
-*   **Rebecca Joyner**, FE Developer (GitHub)
-*   **Forrest Darabian**, BE Developer (GitHub)
-*   **Levi Simpson**, Project Mangager (GitHub)
+*   **Caroline Stinger**, UI Developer [(GitHub)](https://github.com/kelpiy)
+*   **Raj Upadhyaya**, UI Developer [(GitHub)](https://github.com/rUpadhyayahacks)
+*   **David Tauraso**, FE Developer [(GitHub)](https://github.com/dtauraso)
+*   **Hunter Allan**, FE Developer [(GitHub)](https://github.com/Hunter5555)
+*   **Rebecca Joyner**, FE Developer [(GitHub)](https://github.com/rebeccajoyner)
+*   **Forrest Darabian**, BE Developer [(GitHub)](https://github.com/Forrestdarabian)
+*   **Levi Simpson**, Project Mangager [(GitHub)](https://github.com/Levi-Huynh)
 
 How to contribute:
 
