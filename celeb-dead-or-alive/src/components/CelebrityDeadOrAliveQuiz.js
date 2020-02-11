@@ -193,7 +193,7 @@ function CelebrityDeadOrAliveQuiz(props) {
 
         // map only worked when put into a div
         <div>
-            <Timer />
+            {/* <Timer /> */}
 
         {myCelebrities.map((celebrity) => (
             <Celebrity
