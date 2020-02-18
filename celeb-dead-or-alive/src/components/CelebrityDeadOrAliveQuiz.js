@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components";
 import Score from "./Score";
-import Timer from "./Timer";
+
 
 // import Celebrities from "./Celebrities.js";
 import Celebrity from "./Celebrity";
