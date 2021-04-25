@@ -2,7 +2,7 @@
 
 Looking for the viewable website?
 ---
-[Click here!](https://celeb-dead-or-alive-nov2019.netlify.com/)
+[Click here!](https://celeb-dead-or-alive.dtauraso.vercel.app/)
 
 About
 ---
